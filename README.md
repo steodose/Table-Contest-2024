@@ -27,4 +27,4 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ------------
 
-![Explosive Plays](https://raw.githubusercontent.com/steodose/RStudio-Table-Contest/main/2021-22%20Premier%20League%20Table.png)
+![Strokes Gained](https://github.com/steodose/Table-Contest-2024/blob/master/sg_table.png?raw=true)
