@@ -57,9 +57,6 @@ dg_top20.insert(0, 'rank', range(1, 21)) # adding a new column 'rank' which is a
 ```{python}
 from great_tables import GT, md, html
 
-# # Displaying the top 20 in the terminal
-# GT(dg_top20)
-
 #### ---------- Make GT table ------------- ####
 table = GT(dg_top20)
 table = table.tab_header(
@@ -72,15 +69,6 @@ table = table.tab_source_note(
 table = table.tab_source_note(
     source_note=md("**Source:** Data Golf | **Table:** Stephan Teodosescu (@steodosescu)")
     )
-# table = table.fmt_image(
-#     columns='country', 
-#     path=flags_path, 
-#     file_pattern='{}.png'  # {} will be replaced by the country code
-# )
-# table = table.fmt_nanoplot(
-#     columns= "total_true",
-#     plot_type="bar"
-#     )
 table = table.cols_label(
         rank = "Rank",
         country = "Country",
@@ -125,22 +113,6 @@ table = table.data_color(
         palette=["white", "orange"],
         domain=[-2,4]
     )
-    # Style negative values
-# table = table.tab_style(
-#             style = GT.style.text(color = '#8b1a1a', weight = 'bold'),
-#             locations = GT.loc.body(
-#                 columns = ['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'] ,
-#                 rows =  dg_top20['total_true'] < 0
-#     )
-#   )
-#   # Style non-negative values
-#   table = table.tab_style(
-#     style = gt.style.text(color = '#2E8B57', weight = 'bold'),
-#     locations = gt.loc.body(
-#         columns = ['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'],
-#         rows =  dg_top20['total_true'] >= 0
-#         )
-#   )
 table = table.tab_options(
         heading_title_font_size = '30px',
         heading_subtitle_font_size= '16px',

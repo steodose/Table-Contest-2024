@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="data-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="data-preparation">Data Preparation</h3>
-<div id="46560662" class="cell" data-execution_count="1">
+<div id="03f4fc8f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -214,153 +214,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="generate-table-using-great_tables" class="level3">
 <h3 class="anchored" data-anchor-id="generate-table-using-great_tables">Generate table using great_tables</h3>
-<div id="779f3da2" class="cell" data-execution_count="2">
+<div id="a9da7f76" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, md, html</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># # Displaying the top 20 in the terminal</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># GT(dg_top20)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#### ---------- Make GT table ------------- ####</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> GT(dg_top20)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_header(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>md(<span class="st">"**Scottie Scheffler's Dominance**"</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="st">"Evaluating 2024 performance among top professional golfers using Data Golf's true strokes-gained and expected wins (xWins) metrics. Data as of June 9, 2024."</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#### ---------- Make GT table ------------- ####</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> GT(dg_top20)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_header(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>md(<span class="st">"**Scottie Scheffler's Dominance**"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    subtitle<span class="op">=</span><span class="st">"Evaluating 2024 performance among top professional golfers using Data Golf's true strokes-gained and expected wins (xWins) metrics. Data as of June 9, 2024."</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_source_note(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    source_note<span class="op">=</span><span class="st">"Strokes-Gained (SG) is a measure of a player's performance relative to the field average. Putt: Putting, ATG: Around the Green, App: Approach, OTT: Off-the-Tee, TTG: Tee-to-Green"</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_source_note(</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    source_note<span class="op">=</span><span class="st">"Strokes-Gained (SG) is a measure of a player's performance relative to the field average. Putt: Putting, ATG: Around the Green, App: Approach, OTT: Off-the-Tee, TTG: Tee-to-Green"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    source_note<span class="op">=</span>md(<span class="st">"**Source:** Data Golf | **Table:** Stephan Teodosescu (@steodosescu)"</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_source_note(</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    source_note<span class="op">=</span>md(<span class="st">"**Source:** Data Golf | **Table:** Stephan Teodosescu (@steodosescu)"</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># table = table.fmt_image(</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#     columns='country', </span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     path=flags_path, </span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     file_pattern='{}.png'  # {} will be replaced by the country code</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># table = table.fmt_nanoplot(</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     columns= "total_true",</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     plot_type="bar"</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.cols_label(</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        rank <span class="op">=</span> <span class="st">"Rank"</span>,</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> <span class="st">"Country"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        player_name <span class="op">=</span> <span class="st">"Player"</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        tour<span class="op">=</span> <span class="st">"Tour"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        wins <span class="op">=</span> <span class="st">'Wins'</span>, </span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        x_wins <span class="op">=</span> <span class="st">'xWins'</span>, </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        putt_true <span class="op">=</span> <span class="st">'Putt SG'</span>, </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        arg_true <span class="op">=</span> <span class="st">'ATG SG'</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        app_true <span class="op">=</span> <span class="st">'App SG'</span>, </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        ott_true <span class="op">=</span> <span class="st">'OTT SG'</span>, </span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    t2g_true <span class="op">=</span> <span class="st">'TTG SG'</span>, </span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    total_true <span class="op">=</span> <span class="st">'Total SG'</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_spanner(label <span class="op">=</span> md(<span class="st">'**Strokes Gained**'</span>),</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    columns <span class="op">=</span> [<span class="st">"putt_true"</span>, <span class="st">"arg_true"</span>, <span class="st">"app_true"</span>, <span class="st">"ott_true"</span>, <span class="st">"t2g_true"</span>, <span class="st">"total_true"</span>]</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.fmt_number(</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">'putt_true'</span>, <span class="st">'arg_true'</span>, <span class="st">'app_true'</span>, <span class="st">'ott_true'</span>, <span class="st">'t2g_true'</span>, <span class="st">'total_true'</span>],</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    decimals<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.fmt_number(</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"x_wins"</span>],</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    decimals<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.cols_width(</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    cases<span class="op">=</span>{</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">"wins"</span>: <span class="st">"150px"</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># table = table.fmt_number(</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co">#     columns=["wins"],</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co">#     decimals=0</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.data_color(</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span><span class="st">"x_wins"</span>,</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        palette<span class="op">=</span>[<span class="st">"white"</span>, <span class="st">"blue"</span>],</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        domain<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">8</span>]</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.data_color(</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[<span class="st">'putt_true'</span>, <span class="st">'arg_true'</span>, <span class="st">'app_true'</span>, <span class="st">'ott_true'</span>, <span class="st">'t2g_true'</span>, <span class="st">'total_true'</span>],</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        palette<span class="op">=</span>[<span class="st">"white"</span>, <span class="st">"orange"</span>],</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        domain<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>]</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Style negative values</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="co"># table = table.tab_style(</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="co">#             style = GT.style.text(color = '#8b1a1a', weight = 'bold'),</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co">#             locations = GT.loc.body(</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co">#                 columns = ['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'] ,</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co">#                 rows =  dg_top20['total_true'] &lt; 0</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co">#   # Style non-negative values</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co">#   table = table.tab_style(</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="co">#     style = gt.style.text(color = '#2E8B57', weight = 'bold'),</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="co">#     locations = gt.loc.body(</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="co">#         columns = ['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'],</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co">#         rows =  dg_top20['total_true'] &gt;= 0</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co">#         )</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_options(</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>        heading_title_font_size <span class="op">=</span> <span class="st">'30px'</span>,</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>        heading_subtitle_font_size<span class="op">=</span> <span class="st">'16px'</span>,</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>        heading_background_color<span class="op">=</span><span class="st">"black"</span>,</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>        table_background_color <span class="op">=</span> <span class="st">"white"</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>        <span class="co">#,container_width='1100px'</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>        <span class="co">#,table_width = '600px'</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="co"># display table</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.cols_label(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        rank <span class="op">=</span> <span class="st">"Rank"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> <span class="st">"Country"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        player_name <span class="op">=</span> <span class="st">"Player"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        tour<span class="op">=</span> <span class="st">"Tour"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        wins <span class="op">=</span> <span class="st">'Wins'</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        x_wins <span class="op">=</span> <span class="st">'xWins'</span>, </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        putt_true <span class="op">=</span> <span class="st">'Putt SG'</span>, </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        arg_true <span class="op">=</span> <span class="st">'ATG SG'</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        app_true <span class="op">=</span> <span class="st">'App SG'</span>, </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        ott_true <span class="op">=</span> <span class="st">'OTT SG'</span>, </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    t2g_true <span class="op">=</span> <span class="st">'TTG SG'</span>, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    total_true <span class="op">=</span> <span class="st">'Total SG'</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_spanner(label <span class="op">=</span> md(<span class="st">'**Strokes Gained**'</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    columns <span class="op">=</span> [<span class="st">"putt_true"</span>, <span class="st">"arg_true"</span>, <span class="st">"app_true"</span>, <span class="st">"ott_true"</span>, <span class="st">"t2g_true"</span>, <span class="st">"total_true"</span>]</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.fmt_number(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">'putt_true'</span>, <span class="st">'arg_true'</span>, <span class="st">'app_true'</span>, <span class="st">'ott_true'</span>, <span class="st">'t2g_true'</span>, <span class="st">'total_true'</span>],</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    decimals<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.fmt_number(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">"x_wins"</span>],</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    decimals<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.cols_width(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    cases<span class="op">=</span>{</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"wins"</span>: <span class="st">"150px"</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># table = table.fmt_number(</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">#     columns=["wins"],</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">#     decimals=0</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#     )</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.data_color(</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span><span class="st">"x_wins"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        palette<span class="op">=</span>[<span class="st">"white"</span>, <span class="st">"blue"</span>],</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        domain<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">8</span>]</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.data_color(</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[<span class="st">'putt_true'</span>, <span class="st">'arg_true'</span>, <span class="st">'app_true'</span>, <span class="st">'ott_true'</span>, <span class="st">'t2g_true'</span>, <span class="st">'total_true'</span>],</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        palette<span class="op">=</span>[<span class="st">"white"</span>, <span class="st">"orange"</span>],</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        domain<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>]</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> table.tab_options(</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        heading_title_font_size <span class="op">=</span> <span class="st">'30px'</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        heading_subtitle_font_size<span class="op">=</span> <span class="st">'16px'</span>,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        heading_background_color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        table_background_color <span class="op">=</span> <span class="st">"white"</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">#,container_width='1100px'</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        <span class="co">#,table_width = '600px'</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co"># display table</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<div id="doqwvvyuxi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wiimabzdvf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#doqwvvyuxi table {
+#wiimabzdvf table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#doqwvvyuxi thead, tbody, tfoot, tr, td, th { border-style: none; }
+#wiimabzdvf thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#doqwvvyuxi p { margin: 0; padding: 0; }
- #doqwvvyuxi .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: white; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #doqwvvyuxi .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #doqwvvyuxi .gt_title { color: #FFFFFF; font-size: 30px; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: white; border-bottom-width: 0; }
- #doqwvvyuxi .gt_subtitle { color: #FFFFFF; font-size: 16px; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: white; border-top-width: 0; }
- #doqwvvyuxi .gt_heading { background-color: black; text-align: center; border-bottom-color: white; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #doqwvvyuxi .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #doqwvvyuxi .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #doqwvvyuxi .gt_col_heading { color: #333333; background-color: white; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #doqwvvyuxi .gt_column_spanner_outer { color: #333333; background-color: white; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #doqwvvyuxi .gt_column_spanner_outer:first-child { padding-left: 0; }
- #doqwvvyuxi .gt_column_spanner_outer:last-child { padding-right: 0; }
- #doqwvvyuxi .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #doqwvvyuxi .gt_spanner_row { border-bottom-style: hidden; }
- #doqwvvyuxi .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #doqwvvyuxi .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: white; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #doqwvvyuxi .gt_from_md> :first-child { margin-top: 0; }
- #doqwvvyuxi .gt_from_md> :last-child { margin-bottom: 0; }
- #doqwvvyuxi .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #doqwvvyuxi .gt_stub { color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #doqwvvyuxi .gt_stub_row_group { color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #doqwvvyuxi .gt_row_group_first td { border-top-width: 2px; }
- #doqwvvyuxi .gt_row_group_first th { border-top-width: 2px; }
- #doqwvvyuxi .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #doqwvvyuxi .gt_sourcenotes { color: #333333; background-color: white; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #doqwvvyuxi .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #doqwvvyuxi .gt_left { text-align: left; }
- #doqwvvyuxi .gt_center { text-align: center; }
- #doqwvvyuxi .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #doqwvvyuxi .gt_font_normal { font-weight: normal; }
- #doqwvvyuxi .gt_font_bold { font-weight: bold; }
- #doqwvvyuxi .gt_font_italic { font-style: italic; }
- #doqwvvyuxi .gt_super { font-size: 65%; }
- #doqwvvyuxi .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #doqwvvyuxi .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#wiimabzdvf p { margin: 0; padding: 0; }
+ #wiimabzdvf .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: white; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wiimabzdvf .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wiimabzdvf .gt_title { color: #FFFFFF; font-size: 30px; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: white; border-bottom-width: 0; }
+ #wiimabzdvf .gt_subtitle { color: #FFFFFF; font-size: 16px; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: white; border-top-width: 0; }
+ #wiimabzdvf .gt_heading { background-color: black; text-align: center; border-bottom-color: white; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wiimabzdvf .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wiimabzdvf .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wiimabzdvf .gt_col_heading { color: #333333; background-color: white; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wiimabzdvf .gt_column_spanner_outer { color: #333333; background-color: white; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wiimabzdvf .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wiimabzdvf .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wiimabzdvf .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wiimabzdvf .gt_spanner_row { border-bottom-style: hidden; }
+ #wiimabzdvf .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #wiimabzdvf .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: white; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #wiimabzdvf .gt_from_md> :first-child { margin-top: 0; }
+ #wiimabzdvf .gt_from_md> :last-child { margin-bottom: 0; }
+ #wiimabzdvf .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #wiimabzdvf .gt_stub { color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #wiimabzdvf .gt_stub_row_group { color: #333333; background-color: white; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wiimabzdvf .gt_row_group_first td { border-top-width: 2px; }
+ #wiimabzdvf .gt_row_group_first th { border-top-width: 2px; }
+ #wiimabzdvf .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wiimabzdvf .gt_sourcenotes { color: #333333; background-color: white; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wiimabzdvf .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wiimabzdvf .gt_left { text-align: left; }
+ #wiimabzdvf .gt_center { text-align: center; }
+ #wiimabzdvf .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wiimabzdvf .gt_font_normal { font-weight: normal; }
+ #wiimabzdvf .gt_font_bold { font-weight: bold; }
+ #wiimabzdvf .gt_font_italic { font-style: italic; }
+ #wiimabzdvf .gt_super { font-size: 65%; }
+ #wiimabzdvf .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wiimabzdvf .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
