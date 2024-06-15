@@ -1,0 +1,128 @@
+---
+title: "Table Contest 2024"
+author: Stephan Teodosescu
+format:
+    html:
+        theme: cosmo
+        code-fold: true
+---
+
+### Data Preparation
+
+```{python}
+#| warning: false
+
+import pandas as pd
+import numpy as np
+from importlib_resources import files
+
+# load data
+dg_performance = pd.read_csv('https://raw.githubusercontent.com/steodose/Table-Contest-2024/master/dg_performance_2024.csv')
+
+# setting up img file paths for flag icons
+#flags_path = '/Users/Stephan/Desktop/Python/Table-Contest/flags/'
+flags_path = 'https://raw.githubusercontent.com/steodose/Table-Contest-2024/master/flags/'
+
+# function to replace numeric wins with trophy emojis
+def replace_with_emojis(x):
+    return '🏆' * int(x) if x > 0 else ''
+
+
+#### Data preparation ####
+selected_columns = [
+    'country','player_name', 'tour', 'wins', 'x_wins', 'putt_true', 'arg_true', 
+    'app_true', 'ott_true', 't2g_true', 'total_true'
+]
+
+
+dg_clean = dg_performance[selected_columns].replace(-9999, 0) # replace LIV values with 0 values for formatting purposes
+dg_clean['player_name'] = dg_clean['player_name'].apply(lambda name: ' '.join(name.split(', ')[::-1])) # fix player naming conventions
+
+# Creating the 'logo' column with the HTML image tag
+dg_clean['country'] = '<img height=30 src="' + flags_path + dg_clean['country'] + '.png"></img>'
+
+# apply the emoji function to the 'wins' column before creating the GT table
+dg_clean.loc[:, 'wins'] = dg_clean['wins'].apply(lambda x: '🏆' * int(x) if pd.notna(x) and x > 0 else '')
+
+
+dg_top20 = dg_clean.head(20) # cut off at Top 20
+dg_top20.insert(0, 'rank', range(1, 21)) # adding a new column 'rank' which is a simple index + 1 (since index starts at 0)
+
+
+```
+
+
+### Generate table using great_tables
+
+```{python}
+from great_tables import GT, md, html
+
+#### ---------- Make GT table ------------- ####
+table = GT(dg_top20)
+table = table.tab_header(
+    title=md("**Scottie Scheffler's Dominance**"),
+    subtitle="Evaluating 2024 performance among top professional golfers using Data Golf's true strokes-gained and expected wins (xWins) metrics. Data as of June 9, 2024."
+    )
+table = table.tab_source_note(
+    source_note="Strokes-Gained (SG) is a measure of a player's performance relative to the field average. Putt: Putting, ATG: Around the Green, App: Approach, OTT: Off-the-Tee, TTG: Tee-to-Green"
+    )
+table = table.tab_source_note(
+    source_note=md("**Source:** Data Golf | **Table:** Stephan Teodosescu (@steodosescu)")
+    )
+table = table.cols_label(
+        rank = "Rank",
+        country = "Country",
+        player_name = "Player",
+        tour= "Tour",
+        wins = 'Wins', 
+        x_wins = 'xWins', 
+        putt_true = 'Putt SG', 
+        arg_true = 'ATG SG',
+        app_true = 'App SG', 
+        ott_true = 'OTT SG', 
+    t2g_true = 'TTG SG', 
+    total_true = 'Total SG'
+    )
+table = table.tab_spanner(label = md('**Strokes Gained**'),
+    columns = ["putt_true", "arg_true", "app_true", "ott_true", "t2g_true", "total_true"]
+    )
+table = table.fmt_number(
+    columns=['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'],
+    decimals=2
+    )
+table = table.fmt_number(
+    columns=["x_wins"],
+    decimals=1
+    )
+table = table.cols_width(
+    cases={
+            "wins": "150px"
+        }
+    )
+# table = table.fmt_number(
+#     columns=["wins"],
+#     decimals=0
+#     )
+table = table.data_color(
+        columns="x_wins",
+        palette=["white", "blue"],
+        domain=[0,8]
+    )
+table = table.data_color(
+        columns=['putt_true', 'arg_true', 'app_true', 'ott_true', 't2g_true', 'total_true'],
+        palette=["white", "orange"],
+        domain=[-2,4]
+    )
+table = table.tab_options(
+        heading_title_font_size = '30px',
+        heading_subtitle_font_size= '16px',
+        heading_background_color="black",
+        table_background_color = "white"
+        #,container_width='1100px'
+        #,table_width = '600px'
+    )
+
+# display table
+table
+
+```
